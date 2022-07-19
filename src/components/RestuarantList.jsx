@@ -23,7 +23,7 @@ const RestuarantList = () => {
 
   // delete a restuarant (assigned to button below)
   const handleDelete = async function (id) {
-    await fetch(`${url}/${id}`, {
+    await fetch(`${url}/api/v1/restuarants/${id}`, {
       method: "DELETE",
     });
     setRestuarants(

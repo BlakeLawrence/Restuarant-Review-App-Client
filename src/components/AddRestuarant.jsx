@@ -8,8 +8,7 @@ const Addrestuarant = () => {
   const [priceRange, setPriceRange] = useState("Price Range");
   const { addRestuarant } = useContext(RestuarantsContext);
 
-  const url = process.env.REACT_APP_BACKEND_URL ?? "http://localhost:3000";
-  console.log("hello", url);
+  const url = process.env.REACT_APP_BACKEND_URL;
 
   const handleSubmit = async function (e) {
     e.preventDefault();
