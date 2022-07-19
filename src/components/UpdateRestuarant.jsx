@@ -8,7 +8,7 @@ const UpdateRestuarant = (props) => {
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("");
 
-  const url = "http://localhost:5000/api/v1/restuarants";
+  const url = `${process.env.REACT_APP_BACKEND_URL}/restuarants`;
 
   const { id } = useParams();
 
