@@ -6,6 +6,10 @@ This is not my own creation, it was a tutorial that I followed along to, but it 
 
 When following along, I decided to do a few things my own way which meant i had to rely on my own knowledge to get the app working properly. for example, I did not use Axios and so I had to alter my requests (Fetch, Post, Put, Delete) so that they worked.
 
+## Try it out here
+
+https://restuarant-reviews.netlify.app
+
 ## Installation 💻
 
 Clone both the front end (client) and back end (server) repositories to your computer:
