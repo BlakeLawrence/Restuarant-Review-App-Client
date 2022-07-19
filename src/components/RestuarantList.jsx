@@ -22,7 +22,8 @@ const RestuarantList = () => {
   }, [setRestuarants, url]);
 
   // delete a restuarant (assigned to button below)
-  const handleDelete = async function (id) {
+  const handleDelete = async function (e, id) {
+    e.stopPropagation();
     await fetch(`${url}/api/v1/restuarants/${id}`, {
       method: "DELETE",
     });
@@ -33,8 +34,13 @@ const RestuarantList = () => {
     );
   };
 
-  const handleUpdate = function (id) {
+  const handleUpdate = function (e, id) {
+    e.stopPropagation();
     history.push(`/restuarants/${id}/update`);
+  };
+
+  const handleRestuarantSelect = function (id) {
+    history.push(`/restuarants/${id}`);
   };
 
   return (
@@ -54,14 +60,17 @@ const RestuarantList = () => {
           {restuarants &&
             restuarants.map((restuarant) => {
               return (
-                <tr key={restuarant.id}>
+                <tr
+                  onClick={() => handleRestuarantSelect(restuarant.id)}
+                  key={restuarant.id}
+                >
                   <td>{restuarant.name}</td>
                   <td>{restuarant.location}</td>
                   <td>{"$".repeat(restuarant.price_range)}</td>
                   <td>Reviews</td>
                   <td>
                     <button
-                      onClick={() => handleUpdate(restuarant.id)}
+                      onClick={(e) => handleUpdate(e, restuarant.id)}
                       className="btn btn-warning"
                     >
                       Update
@@ -69,7 +78,7 @@ const RestuarantList = () => {
                   </td>
                   <td>
                     <button
-                      onClick={() => handleDelete(restuarant.id)}
+                      onClick={(e) => handleDelete(e, restuarant.id)}
                       className="btn btn-danger"
                     >
                       Delete
