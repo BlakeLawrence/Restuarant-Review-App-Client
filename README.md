@@ -8,11 +8,7 @@ When following along, I decided to do a few things my own way which meant i had 
 
 ## Try it out here
 
-allow 5 seconds for current data to display
-
-```bash
 https://restuarant-reviews.netlify.app
-```
 
 ## Installation 💻
 
