@@ -8,11 +8,12 @@ const RestuarantList = () => {
 
   let history = useHistory();
 
-  const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/restuarants`;
+  const url = process.env.REACT_APP_BACKEND_URL;
+
   // show all restuarants on screen
   useEffect(() => {
     async function fetchData() {
-      const response = await fetch(url);
+      const response = await fetch(`${url}/api/v1/restuarants`);
       const data = await response.json();
       console.log(data.data.restuarants);
       setRestuarants(data.data.restuarants);

@@ -8,10 +8,11 @@ const Addrestuarant = () => {
   const [priceRange, setPriceRange] = useState("Price Range");
   const { addRestuarant } = useContext(RestuarantsContext);
 
-  const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/restuarants`;
+  const url = process.env.REACT_APP_BACKEND_URL;
+
   const handleSubmit = async function (e) {
     e.preventDefault();
-    const response = await fetch(url, {
+    const response = await fetch(`${url}/api/v1/restuarants`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

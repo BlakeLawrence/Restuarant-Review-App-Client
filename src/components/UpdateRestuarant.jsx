@@ -8,7 +8,7 @@ const UpdateRestuarant = (props) => {
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("");
 
-  const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/restuarants`;
+  const url = process.env.REACT_APP_BACKEND_URL;
 
   const { id } = useParams();
 
@@ -17,7 +17,7 @@ const UpdateRestuarant = (props) => {
   // When we click on Update button, the below function sets the input fields to that restuarants details so user can amend withour having to remember.
   useEffect(() => {
     const fetchData = async function () {
-      const response = await fetch(`${url}/${id}`);
+      const response = await fetch(`${url}/api/v1/restuarants/${id}`);
       const data = await response.json();
       setName(data.payload[0].name);
       setLocation(data.payload[0].location);
@@ -29,7 +29,7 @@ const UpdateRestuarant = (props) => {
   const handleSubmit = async function (e) {
     e.preventDefault();
     console.log("submit button working");
-    const response = await fetch(`${url}/${id}`, {
+    const response = await fetch(`${url}/api/v1/restuarants/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
