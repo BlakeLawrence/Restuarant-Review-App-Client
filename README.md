@@ -9,6 +9,7 @@ When following along, I decided to do a few things my own way which meant i had 
 ## Try it out here
 
 https://restuarant-reviews.netlify.app
+allow 5 seconds for current data to display
 
 ## Installation 💻
 
@@ -17,9 +18,10 @@ Clone both the front end (client) and back end (server) repositories to your com
 ```bash
  https://github.com/BlakeLawrence/Restuarant-Review-App-Client.git
 ```
+
 ```bash
  https://github.com/BlakeLawrence/Restuarant-Review-App-Server.git
- ```
+```
 
 Open up each repo up separately in a window of your code editor of choice (I use VS Code).
 Install the dependancies for each repo with the following command:
