@@ -8,7 +8,7 @@ const RestuarantList = () => {
 
   let history = useHistory();
 
-  const url = `${process.env.REACT_APP_BACKEND_URL}/restuarants`;
+  const url = `${process.env.REACT_APP_BACKEND_URL}/api/v1/restuarants`;
   // show all restuarants on screen
   useEffect(() => {
     async function fetchData() {
