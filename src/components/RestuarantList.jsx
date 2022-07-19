@@ -8,7 +8,7 @@ const RestuarantList = () => {
 
   let history = useHistory();
 
-  const url = process.env.REACT_APP_BACKEND_URL;
+  const url = "http://localhost:5000";
 
   // show all restuarants on screen
   useEffect(() => {
@@ -19,7 +19,7 @@ const RestuarantList = () => {
       setRestuarants(data.data.restuarants);
     }
     fetchData();
-  }, [setRestuarants]);
+  }, [setRestuarants, url]);
 
   // delete a restuarant (assigned to button below)
   const handleDelete = async function (id) {
