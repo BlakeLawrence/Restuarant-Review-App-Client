@@ -9,6 +9,7 @@ const RestuarantList = () => {
   let history = useHistory();
 
   const url = process.env.REACT_APP_BACKEND_URL;
+  // "http://localhost:5000"
 
   // show all restuarants on screen
   useEffect(() => {

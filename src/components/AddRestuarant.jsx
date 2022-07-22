@@ -9,6 +9,7 @@ const Addrestuarant = () => {
   const { addRestuarant } = useContext(RestuarantsContext);
 
   const url = process.env.REACT_APP_BACKEND_URL;
+  // "http://localhost:5000"
 
   const handleSubmit = async function (e) {
     e.preventDefault();

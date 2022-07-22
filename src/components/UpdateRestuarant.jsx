@@ -9,7 +9,7 @@ const UpdateRestuarant = (props) => {
   const [priceRange, setPriceRange] = useState("");
 
   const url = process.env.REACT_APP_BACKEND_URL;
-
+  // "http://localhost:5000"
   const { id } = useParams();
 
   let history = useHistory();
@@ -19,9 +19,9 @@ const UpdateRestuarant = (props) => {
     const fetchData = async function () {
       const response = await fetch(`${url}/api/v1/restuarants/${id}`);
       const data = await response.json();
-      setName(data.payload[0].name);
-      setLocation(data.payload[0].location);
-      setPriceRange(data.payload[0].price_range);
+      setName(data.payload.restuarant[0].name);
+      setLocation(data.payload.restuarant[0].location);
+      setPriceRange(data.payload.restuarant[0].price_range);
     };
     fetchData();
   }, [id, url]);
