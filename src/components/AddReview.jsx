@@ -1,10 +1,34 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useHistory, useLocation, useParams } from "react-router-dom";
 
 const AddReview = () => {
   const [name, setName] = useState("");
   const [reviewText, setReviewText] = useState("");
   const [rating, setRating] = useState("Rating");
+
+  const { id } = useParams();
+  console.log(id);
+
+  const history = useHistory();
+
+  const url = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+
+  const handleSubmitReview = async function (e) {
+    e.preventDefault();
+    const response = await fetch(`${url}/api/v1/restuarants/${id}/addReview`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name,
+        review: reviewText,
+        rating: rating,
+      }),
+    });
+    const data = await response.json();
+    console.log(data.payload[0]);
+    history.push("/");
+  };
 
   return (
     <div className="mb-2">
@@ -47,7 +71,9 @@ const AddReview = () => {
             className="form-control"
           ></textarea>
         </div>
-        <button className="btn btn-primary">Submit</button>
+        <button className="btn btn-primary" onClick={handleSubmitReview}>
+          Submit
+        </button>
       </form>
     </div>
   );

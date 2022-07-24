@@ -11,9 +11,8 @@ const RestuarantdetailPage = () => {
     useContext(RestuarantsContext);
 
   // Url for backend
-  // process.env.REACT_APP_BACKEND_URL ||
-  const url = "http://localhost:5000";
-  console.log("hello", url);
+
+  const url = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
 
   useEffect(() => {
     const fetchData = async function () {

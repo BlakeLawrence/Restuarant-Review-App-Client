@@ -8,8 +8,8 @@ const UpdateRestuarant = (props) => {
   const [location, setLocation] = useState("");
   const [priceRange, setPriceRange] = useState("");
 
-  const url = process.env.REACT_APP_BACKEND_URL;
-  // "http://localhost:5000"
+  const url = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000";
+
   const { id } = useParams();
 
   let history = useHistory();
@@ -24,7 +24,7 @@ const UpdateRestuarant = (props) => {
       setPriceRange(data.payload.restuarant[0].price_range);
     };
     fetchData();
-  }, [id, url]);
+  }, [id]);
 
   const handleSubmit = async function (e) {
     e.preventDefault();
@@ -38,8 +38,8 @@ const UpdateRestuarant = (props) => {
         price_range: priceRange,
       }),
     });
-    history.push("/");
     const data = await response.json();
+    history.push("/");
     console.log(data);
   };
 
