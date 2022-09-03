@@ -30,6 +30,7 @@ const RestuarantList = () => {
     e.stopPropagation();
     await fetch(`${url}/api/v1/restuarants/${id}`, {
       method: "DELETE",
+      mode: "cors",
     });
     setRestuarants(
       restuarants.filter((restuarant) => {

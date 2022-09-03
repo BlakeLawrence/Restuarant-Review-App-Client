@@ -18,6 +18,7 @@ const AddReview = () => {
     e.preventDefault();
     const response = await fetch(`${url}/api/v1/restuarants/${id}/addReview`, {
       method: "POST",
+      mode: "cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: name,

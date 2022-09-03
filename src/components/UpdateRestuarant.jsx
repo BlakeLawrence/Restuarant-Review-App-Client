@@ -31,6 +31,7 @@ const UpdateRestuarant = (props) => {
     console.log("submit button working");
     const response = await fetch(`${url}/api/v1/restuarants/${id}`, {
       method: "PUT",
+      mode: "cors",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         name: name,
